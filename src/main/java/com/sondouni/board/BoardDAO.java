@@ -76,17 +76,15 @@ public class BoardDAO {
         }
         return num;
     }
+    public static List<BoardVO> selBoardList(){
+        return selBoardList(null,null);
+    }
     public static List<BoardVO> selBoardList(String key,String value){
         List<BoardVO> list = new ArrayList();
         Connection con = null;
         PreparedStatement pr = null;
         ResultSet rs = null;
-        String sql;
-        if("".equals(value)||value==null) {
-            sql = " SELECT * FROM t_board ";
-        }else{
-            sql = " SELECT * FROM t_board where "+key+" = "+value;
-        }
+        String sql =" SELECT * FROM t_board where "+key+" like '%"+value+"%'";
         try {
             con = DButils.getCon();
             pr = con.prepareStatement(sql);
