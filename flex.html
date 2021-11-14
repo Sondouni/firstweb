@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex</title>
+    <style>
+        * { margin:0; padding: 0;}
+        html, body { height: 100%; padding: 0; margin: 0;}
+        #container { height: 100%; display: flex; flex-direction: row; justify-content: flex-start; align-items: center;}
+        .bc1 { flex: 1; background-color: aqua; }
+        .bc2 { flex: 2; background-color: aquamarine;}
+    </style>
+</head>
+<body>
+    <div id="container">
+        <p>A</p>
+        <div class="bc2">A</div>
+        <div class="bc1">B</div>
+        <div>C</div>
+    </div>
+</body>
+</html>
