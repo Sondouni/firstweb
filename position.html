@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*
+        static,fixed,relative,absolute,sticky
+        position속성을 안주면 default값으로 static
+        fixed : 계속 화면에 나옴
+
+        */
+        div {width: 100px; height: 100px; background-color: skyblue; margin: 1px;}
+        .sta{left:100px}
+        .rel{position: relative;left: 20px;top:20px}
+        .mini { width: 20px; height: 20px; background-color: slateblue; right: 20px;top:10px }
+    </style>
+</head>
+<body>
+    <div>0</div>
+    <div class="sta">1</div>
+    <div class="rel">2</div>
+    <div class="rel">3</div>
+    <div>4
+        <div class="mini rel"></div>
+    </div>
+</body>
+</html>

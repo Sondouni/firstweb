@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>divPage</title>
+    <style>
+        html,body { margin: 0; padding: 0; height: 100%; }
+        .div { display: flex; flex-direction: column; height: 100%;}
+        .nav { background-color: cornflowerblue; height: 100px;}
+        .sec { display: flex; flex-direction: row; height: 100%; }
+        .sec1 { background-color: yellow; flex: 1}
+        .sec2 { background-color: yellowgreen; flex: 8;}
+        .foot { background-color: rgb(232, 179, 245);height: 80px;display: flex; justify-content: center; align-items: center;}
+    </style>
+</head>
+<body>
+    <div class="div">
+        <nav class="nav">nav</nav>
+        <section class="sec">
+            <div class="sec1">1</div>
+            <div class="sec2">2</div>
+        </section>
+        <footer class="foot">footer</footer>
+    </div>   
+    <div></div>
+    <div></div>
+</body>
+</html>
