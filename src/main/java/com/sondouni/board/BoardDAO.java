@@ -123,6 +123,9 @@ public class BoardDAO {
         return list;
 
     }
+    public static List<BoardVO> selBoardList(){
+        return selBoardList("title","");
+    }
     public static List<BoardVO> selBoardList(String key,String value){
         List<BoardVO> list = new ArrayList();
 

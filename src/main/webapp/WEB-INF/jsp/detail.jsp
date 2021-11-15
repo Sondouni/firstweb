@@ -1,7 +1,12 @@
 <%@ page import="com.sondouni.board.BoardVO" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Collections" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
     BoardVO vo = (BoardVO)request.getAttribute("data");
+    int num = (Integer)request.getAttribute("num");
+    List<BoardVO> list = (List)request.getAttribute("list");
+    Collections.reverse(list);
 %>
 <!DOCTYPE html>
 <html lang="ko">
@@ -19,10 +24,16 @@
     <div>작성자:<%= vo.getWriter()%> </div>
     <div>작성일시:<%= vo.getRdt()%> </div>
     <div>
+        <a href="/detail?iboard=<%= list.get(num+1).getIboard() %>&num=<%=num+1%>">이전</a>
+    </div>
+    <div>
         <a href="/del?iboard=<%= vo.getIboard() %>"><input type="button" value="삭제"></a>
     </div>
     <div>
         <a href="/upd?iboard=<%= vo.getIboard() %>"><input type="button" value="수정"></a>
+    </div>
+    <div>
+        <a href="/detail?iboard=<%= list.get(num-1).getIboard() %>&num=<%=num-1%>">다음</a>
     </div>
 
 </body>

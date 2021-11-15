@@ -14,6 +14,14 @@ public class BoardDetailServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
         BoardVO vo = new BoardVO();
         vo.setIboard(Integer.parseInt(req.getParameter("iboard")));
+        System.out.println(vo.getIboard());
+        //이전,다음
+        req.setAttribute("num",Integer.parseInt(req.getParameter("num")));
+        req.setAttribute("list",BoardDAO.selBoardList());
+        //
+        for(BoardVO vsso : BoardDAO.selBoardList()){
+            System.out.println(vsso.getIboard());
+        }
         BoardVO vvo = BoardDAO.selBoard(vo);
         req.setAttribute("data",vvo);
         String path = "/WEB-INF/jsp/detail.jsp";

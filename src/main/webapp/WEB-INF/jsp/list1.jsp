@@ -21,39 +21,43 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class = "row">
-            <table class="table table-striped" style="text-align:center; border:1px solid #dddddd">
-                <thead>
-                <tr>
-                    <th style="background-color: #eeeeee; text-align: center;">번호</th>
-                    <th style="background-color: #eeeeee; text-align: center;">제목</th>
-                    <th style="background-color: #eeeeee; text-align: center;">작성자</th>
-                    <th style="background-color: #eeeeee; text-align: center;">작성일</th>
-                </tr>
-                </thead>
-                <tbody>
-                <% for(BoardVO vo: list){ %>
-                <tr>
-                    <td><%=vo.getIboard() %></td>
-                    <td>
-                        <a href="/detail?iboard=<%= vo.getIboard() %>">
-                            <%=vo.getTitle() %>
-                        </a>
-                    </td>
-                    <td><%=vo.getWriter() %></td>
-                    <td><%=vo.getRdt() %></td>
-                </tr>
-                <% } %>
-                </tbody>
-            </table><a href = "write.jsp" class="btn btn-primary pull-right">글쓰기</a>
-        </div>
-    </div> <!-- 애니매이션 담당 JQUERY -->
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js">
-    </script> <!-- 부트스트랩 JS -->
-    <script src="js/bootstrap.js">
-    </script>
-
-
+<div>
+    <a href="/write"><input type="button" value="글쓰기"></a>
+</div>
+<form>
+    <fieldset>
+        <legend></legend>
+        <label>검색</label>
+        <select name ="sh">
+            <option value="title">제목</option>
+            <option value="writer">작성자</option>
+        </select>
+        <label>검색어</label>
+        <input type="text" name ="shtext" value=""/>
+        <input type="submit" value="검색">
+    </fieldset>
+</form>
+<table>
+    <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>글쓴이</th>
+        <th>작성일시</th>
+    </tr>
+    <% for(int i = 0;i<list.size();i++){
+        BoardVO vo = list.get(i);
+        int num = i;%>
+    <tr>
+        <td><%=vo.getIboard() %></td>
+        <td>
+            <a href="/detail?iboard=<%=vo.getIboard()%>&num=<%=num%>">
+                <%=vo.getTitle() %>
+            </a>
+        </td>
+        <td><%=vo.getWriter() %></td>
+        <td><%=vo.getRdt() %></td>
+    </tr>
+    <% } %>
+</table>
 </body>
 </html>
